@@ -1,0 +1,4 @@
+[submodule "luci-app-nikki"]
+	path = luci-app-nikki
+	url = https://github.com/nikkinikki-org/OpenWrt-nikki
+	branch = main
