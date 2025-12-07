@@ -1,0 +1,27 @@
+name: Auto Update Submodules
+
+on:
+  schedule:
+    - cron: "0 3 * * *"     # 每天凌晨 3 点自动运行
+  workflow_dispatch:        # 手动运行按钮
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo including submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update submodules
+        run: |
+          git submodule update --remote --init
+          git add .
+          git commit -m "Auto update submodules" || echo "No changes"
+
+      - name: Push updates
+        run: |
+          git push
