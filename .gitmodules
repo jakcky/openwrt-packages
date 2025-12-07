@@ -2,3 +2,6 @@
 	path = luci-app-nikki
 	url = https://github.com/nikkinikki-org/OpenWrt-nikki
 	branch = main
+[submodule "nikki"]
+	path = nikki
+	url = https://github.com/nikkinikki-org/OpenWrt-nikki
